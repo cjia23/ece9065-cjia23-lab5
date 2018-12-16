@@ -1,0 +1,8 @@
+<ul>
+    <li *ngFor = 'let item of items'
+      [class.selected] = "item ===selectedItem"
+      (click) = "onSelect(item)">{{item.name}}</li>
+</ul>
+
+
+<app-fruit-detail [item] = "selectedItem"></app-fruit-detail>

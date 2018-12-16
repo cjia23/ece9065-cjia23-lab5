@@ -1,0 +1,25 @@
+<h2>Items</h2>
+
+{{title}}<br>
+
+
+Item Name: <input type = "text" id = "item_name"><br>
+Item Quantity: <input type = "text" id = "item_quantity"><br>
+Item Price: <input type = "text" id = "item_price"><br>
+Item Tax Rate: <input type = "text" id = "item_tax_rate"><br>
+Item Description: <input type = "text" id = "item_description"><br>
+Item Sold Quantity: <input type = "text" id = "item_sold_quantity"><br>
+
+<button (click) = "addanItem()">POST - Add an item</button>
+<button (click) = "deleteanItem()">delete - Delete an item</button>
+<button (click) = "getItems()">GET items</button>
+
+<ul>
+    <li *ngFor = "let item of items">
+        <button class="delete" title="delete item" (click)="deleteanItem(item)">x</button>
+        Item Name: {{item._id}}---{{item.name}} - Description: {{item.item_description}}Item Quantity: {{item.quantity}} - Item Price: {{item.price}} - Item Tax Rate: {{item.tax_rate}}
+    </li>
+</ul>
+
+
+
