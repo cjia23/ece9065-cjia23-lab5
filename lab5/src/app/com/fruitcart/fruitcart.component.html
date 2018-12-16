@@ -1,7 +1,13 @@
 <ul>
     <li *ngFor = 'let item of items'
       [class.selected] = "item ===selectedItem"
-      (click) = "onSelect(item)">{{item.name}}</li>
+      (click) = "onSelect(item)">
+      <div *ngIf = 'item.quantity !== 0'>
+        {{item.name}}--popularity index: {{item.sold_quantity}}
+      </div>
+      
+      <button class="delete" title="delete item" (click)="deleteanItem(item)">Delete</button>
+    </li>
 </ul>
 
 

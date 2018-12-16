@@ -6,4 +6,5 @@ export class Item {
     sold_quantity: Number;
     item_description: String;
     _id: String;
+    rating:Number;
 }

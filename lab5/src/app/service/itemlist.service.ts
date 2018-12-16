@@ -20,7 +20,10 @@ export class ItemlistService implements Item {
   constructor(private http: HttpClient) { }
   
   getItems(): Observable<Item[]>{
-    return this.http.get<Item[]>(url);
+    return this.http.get<Item[]>(url).pipe(
+           tap(results => {
+           results.sort(this.sold_quantity)
+  }))
   };
   
   name;
@@ -30,6 +33,7 @@ export class ItemlistService implements Item {
   item_description;
   sold_quantity;
   _id;
+  rating;
   
   
   //add an item to the server
@@ -41,7 +45,8 @@ export class ItemlistService implements Item {
      "tax_rate": (<HTMLInputElement>document.getElementById("item_price")).value,
      "price": (<HTMLInputElement>document.getElementById("item_tax_rate")).value,
      "item_description": (<HTMLInputElement>document.getElementById("item_description")).value,
-     "item_sold_quantity": (<HTMLInputElement>document.getElementById("item_sold_quantity")).value
+     "sold_quantity": (<HTMLInputElement>document.getElementById("item_sold_quantity")).value,
+     "rating": (<HTMLInputElement>document.getElementById("item_rating")).value
      }
      
     let options = {

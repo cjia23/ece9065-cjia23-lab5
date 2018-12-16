@@ -9,6 +9,7 @@ Item Price: <input type = "text" id = "item_price"><br>
 Item Tax Rate: <input type = "text" id = "item_tax_rate"><br>
 Item Description: <input type = "text" id = "item_description"><br>
 Item Sold Quantity: <input type = "text" id = "item_sold_quantity"><br>
+Item Sold Rating: <input type = "text" id = "item_rating"><br>
 
 <button (click) = "addanItem()">POST - Add an item</button>
 <button (click) = "deleteanItem()">delete - Delete an item</button>
@@ -17,7 +18,9 @@ Item Sold Quantity: <input type = "text" id = "item_sold_quantity"><br>
 <ul>
     <li *ngFor = "let item of items">
         <button class="delete" title="delete item" (click)="deleteanItem(item)">x</button>
-        Item Name: {{item._id}}---{{item.name}} - Description: {{item.item_description}}Item Quantity: {{item.quantity}} - Item Price: {{item.price}} - Item Tax Rate: {{item.tax_rate}}
+        Item Name: {{item._id}}---{{item.name}} - Description: {{item.item_description}}
+        --Item Sold Quantity: {{item.sold_quantity}}--Item Quantity: {{item.quantity}} 
+        - Item Price: {{item.price}} - Item Tax Rate: {{item.tax_rate}}
     </li>
 </ul>
 

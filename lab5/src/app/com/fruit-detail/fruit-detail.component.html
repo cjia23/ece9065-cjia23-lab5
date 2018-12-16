@@ -3,11 +3,20 @@
 
 <div><span>id: </span> {{item._id}}</div>
 <div>
-    <label>name:
+    <label>name: {{item.name}}
           <input [(ngModel)]="item.name" placeholder="name">
     </label>
-    <label>Price:
+    
+    <label>Price: {{item.price}}
           <input [(ngModel)]="item.price" placeholder="price">
+    </label>
+    
+    <label>Description: {{item.description}}
+          <input [(ngModel)]="item.description" placeholder="description">
+    </label>
+    
+    <label>Rating: {{item.rating}}
+          <input [(ngModel)]="item.rating" placeholder="rating">
     </label>
 </div>
 </div>
