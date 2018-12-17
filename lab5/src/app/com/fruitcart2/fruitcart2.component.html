@@ -1,0 +1,35 @@
+<ul>
+    <li *ngFor = "let item of items"
+      [class.selected] = "item ===selectedItem"
+      (click) = "onSelect(item)">
+      <div *ngIf = 'item.quantity !== 0'>
+        {{item.name}}--popularity index: {{item.sold_quantity}}
+      </div>
+    </li>
+</ul>
+
+<div *ngIf = "selectedItem">
+<h2>{{selectedItem.name | uppercase}} Details</h2>
+
+<div><span>id: </span> {{selectedItem._id}}</div>
+<div>
+    <label>name: {{selectedItem.name}}
+          <input [(ngModel)]="selectedItem.name" placeholder="name">
+    </label>
+    
+    <label>Price: {{selectedItem.price}}
+          <input [(ngModel)]="selectedItem.price" placeholder="price">
+    </label>
+    
+    <label>Description: {{selectedItem.description}}
+          <input [(ngModel)]="selectedItem.description" placeholder="description">
+    </label>
+    
+    <label>Rating: {{selectedItem.rating}}
+          <input [(ngModel)]="selectedItem.rating" placeholder="rating">
+    </label>
+    
+</div>
+</div>
+
+

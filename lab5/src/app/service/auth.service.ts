@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-
 const url = 'https://ece9065-cjia23-backend-fengchuiyu.c9users.io/api';
 
 @Injectable({
@@ -34,6 +33,5 @@ export class AuthService {
       params: new HttpParams().append('token', localStorage.getItem('token'))
     });
   }
-  
   
 }

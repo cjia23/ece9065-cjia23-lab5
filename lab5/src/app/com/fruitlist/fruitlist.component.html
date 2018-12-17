@@ -12,15 +12,25 @@ Item Sold Quantity: <input type = "text" id = "item_sold_quantity"><br>
 Item Sold Rating: <input type = "text" id = "item_rating"><br>
 
 <button (click) = "addanItem()">POST - Add an item</button>
-<button (click) = "deleteanItem()">delete - Delete an item</button>
 <button (click) = "getItems()">GET items</button>
 
 <ul>
     <li *ngFor = "let item of items">
-        <button class="delete" title="delete item" (click)="deleteanItem(item)">x</button>
-        Item Name: {{item._id}}---{{item.name}} - Description: {{item.item_description}}
-        --Item Sold Quantity: {{item.sold_quantity}}--Item Quantity: {{item.quantity}} 
-        - Item Price: {{item.price}} - Item Tax Rate: {{item.tax_rate}}
+        <button class="delete" title="delete item" (click)="deleteanItem(item)">Delete</button>
+        <button class="update" title="update item" (click)="updateanItem(item)">Update</button>
+        Item Name: {{item._id}}<br>
+        name: {{item.name}}
+        <input [(ngModel)]="item.name" placeholder="name"><br>
+        --Description: {{item.description}}
+        <input [(ngModel)]="item.description" placeholder="description"><br>
+        --Item Sold Quantity: {{item.sold_quantity}}
+        <input [(ngModel)]="item.sold_quantity" placeholder="sold_quantity"><br>
+        --Item Quantity: {{item.quantity}} 
+        <input [(ngModel)]="item.quantity" placeholder="quantity"><br>
+        - Item Price: {{item.price}} 
+        <input [(ngModel)]="item.price" placeholder="price"><br>
+        - Item Tax Rate: {{item.tax_rate}}
+        <input [(ngModel)]="item.tax_rate" placeholder="tax_rate"><br>
     </li>
 </ul>
 

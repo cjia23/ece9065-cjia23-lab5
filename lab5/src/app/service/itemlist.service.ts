@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient,HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Item } from 'src/app/model/item';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
@@ -20,17 +20,14 @@ export class ItemlistService implements Item {
   constructor(private http: HttpClient) { }
   
   getItems(): Observable<Item[]>{
-    return this.http.get<Item[]>(url).pipe(
-           tap(results => {
-           results.sort(this.sold_quantity)
-  }))
+    return this.http.get<Item[]>(url)
   };
   
   name;
   quantity;
   price;
   tax_rate;
-  item_description;
+  description;
   sold_quantity;
   _id;
   rating;
@@ -44,7 +41,7 @@ export class ItemlistService implements Item {
      "quantity": (<HTMLInputElement>document.getElementById("item_quantity")).value,
      "tax_rate": (<HTMLInputElement>document.getElementById("item_price")).value,
      "price": (<HTMLInputElement>document.getElementById("item_tax_rate")).value,
-     "item_description": (<HTMLInputElement>document.getElementById("item_description")).value,
+     "description": (<HTMLInputElement>document.getElementById("item_description")).value,
      "sold_quantity": (<HTMLInputElement>document.getElementById("item_sold_quantity")).value,
      "rating": (<HTMLInputElement>document.getElementById("item_rating")).value
      }
@@ -64,6 +61,13 @@ export class ItemlistService implements Item {
   deleteanItem(item: Item): Observable<Item>{
     let new_url = url + `/${item._id}`;
     return this.http.delete<Item>(new_url, httpOptions)
+  }
+  
+  //update an item by ID in the server
+  updateanItem(item: Item): Observable<Item>{
+                  
+    let new_url = url + `/${item._id}`;
+    return this.http.put<Item>(new_url, item)
   }
   
 }

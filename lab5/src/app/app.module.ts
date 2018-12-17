@@ -21,6 +21,8 @@ import { UserDashboardComponent } from './auth/user-dashboard/user-dashboard.com
 import { AuthService } from 'src/app/service/auth.service';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ShoppingcartComponent } from './com/shoppingcart/shoppingcart.component';
+import { UserlistComponent } from './com/userlist/userlist.component';
+import { Fruitcart2Component } from './com/fruitcart2/fruitcart2.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ShoppingcartComponent } from './com/shoppingcart/shoppingcart.component
     MainDeskComponent,
     RegisterComponent,
     UserDashboardComponent,
-    ShoppingcartComponent
+    ShoppingcartComponent,
+    UserlistComponent,
+    Fruitcart2Component
   ],
   imports: [
     BrowserModule,

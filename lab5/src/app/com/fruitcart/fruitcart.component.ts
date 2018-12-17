@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemlistService } from 'src/app/service/itemlist.service';
 import { Item } from 'src/app/model/item';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-fruitcart',
@@ -39,4 +40,7 @@ export class FruitcartComponent implements OnInit {
     this.myservice.deleteanItem(item).subscribe();
   }
   
+  sortItems(items: Observable<Item []>){
+    
+  }
 }

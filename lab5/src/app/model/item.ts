@@ -4,7 +4,7 @@ export class Item {
     tax_rate: Number;
     price: Number;
     sold_quantity: Number;
-    item_description: String;
+    description: String;
     _id: String;
     rating:Number;
 }

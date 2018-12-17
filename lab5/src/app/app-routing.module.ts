@@ -6,6 +6,8 @@ import { LoginComponent } from 'src/app/auth/login/login.component';
 import { MainDeskComponent } from 'src/app/auth/main-desk/main-desk.component';
 import { RegisterComponent } from 'src/app/auth/register/register.component';
 import { UserDashboardComponent } from 'src/app/auth/user-dashboard/user-dashboard.component';
+import { UserlistComponent } from 'src/app/com/userlist/userlist.component';
+import { Fruitcart2Component} from 'src/app/com/fruitcart2/fruitcart2.component';
 
 const routes: Routes = [
   {path: 'fruitlist', component: FruitlistComponent},
@@ -20,8 +22,9 @@ const routes: Routes = [
         { path: 'register', component: RegisterComponent }
     ]
   },
-  {path: 'dash' , component: UserDashboardComponent}
-  
+  {path: 'dash' , component: UserDashboardComponent},
+  {path: 'userlist', component: UserlistComponent},
+  {path: 'fruitcart2', component: Fruitcart2Component}
   ];
 
 @NgModule({
