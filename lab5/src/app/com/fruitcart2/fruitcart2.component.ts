@@ -15,6 +15,9 @@ export class Fruitcart2Component implements OnInit {
   items;
   
   
+  boughtItems: Observable<Item[]>;
+  bought_quantity;
+  
   selectedItem: Item;
   
   ngOnInit() {
@@ -40,5 +43,18 @@ export class Fruitcart2Component implements OnInit {
     this.myservice.deleteanItem(item).subscribe();
   }
   
+  buyItem(item: Item){
+    if(item.quantity > 0 ){
+        item.quantity --;
+        item.sold_quantity ++;
+        this.bought_quantity ++;
+        console.log("1 " + item.name + " sold." );
+    } else {
+      console.log("item sold out");
+    }
+    
+    this.myservice.updateanItem(item);
+    
+  }
   
 }

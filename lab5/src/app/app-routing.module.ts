@@ -8,9 +8,11 @@ import { RegisterComponent } from 'src/app/auth/register/register.component';
 import { UserDashboardComponent } from 'src/app/auth/user-dashboard/user-dashboard.component';
 import { UserlistComponent } from 'src/app/com/userlist/userlist.component';
 import { Fruitcart2Component} from 'src/app/com/fruitcart2/fruitcart2.component';
+import { AuthGuard } from 'src/app/guard/auth.guard';
+import { AdminguardGuard } from 'src/app/guard/adminguard.guard';
 
 const routes: Routes = [
-  {path: 'fruitlist', component: FruitlistComponent},
+  {path: 'fruitlist', component: FruitlistComponent,canActivate: [AdminguardGuard]},
   {path: 'fruitcart', component: FruitcartComponent},
   {path: 'login', component: LoginComponent},
   {path: '', redirectTo: 'main', pathMatch: 'full'},
@@ -23,8 +25,8 @@ const routes: Routes = [
     ]
   },
   {path: 'dash' , component: UserDashboardComponent},
-  {path: 'userlist', component: UserlistComponent},
-  {path: 'fruitcart2', component: Fruitcart2Component}
+  {path: 'userlist', component: UserlistComponent,canActivate: [AdminguardGuard]},
+  {path: 'fruitcart2', component: Fruitcart2Component,canActivate: [AuthGuard]}
   ];
 
 @NgModule({

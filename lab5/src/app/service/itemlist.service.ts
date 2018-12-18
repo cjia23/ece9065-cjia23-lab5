@@ -31,6 +31,7 @@ export class ItemlistService implements Item {
   sold_quantity;
   _id;
   rating;
+  bought_quantity;
   
   
   //add an item to the server
@@ -69,5 +70,15 @@ export class ItemlistService implements Item {
     let new_url = url + `/${item._id}`;
     return this.http.put<Item>(new_url, item)
   }
+  
+  //get an item by ID in the server
+  getanItem(item: Item): Observable<Item>{
+                  
+    let new_url = url + `/${item._id}`;
+    return this.http.get<Item>(new_url)
+    console.log("selected item updated.")
+  }
+  
+  
   
 }

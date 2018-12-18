@@ -19,10 +19,10 @@ import { MainDeskComponent } from './auth/main-desk/main-desk.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { UserDashboardComponent } from './auth/user-dashboard/user-dashboard.component';
 import { AuthService } from 'src/app/service/auth.service';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import { ShoppingcartComponent } from './com/shoppingcart/shoppingcart.component';
+import { MatFormFieldModule} from '@angular/material/form-field';
 import { UserlistComponent } from './com/userlist/userlist.component';
 import { Fruitcart2Component } from './com/fruitcart2/fruitcart2.component';
+import { AuthGuard } from 'src/app/guard/auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,7 +34,6 @@ import { Fruitcart2Component } from './com/fruitcart2/fruitcart2.component';
     MainDeskComponent,
     RegisterComponent,
     UserDashboardComponent,
-    ShoppingcartComponent,
     UserlistComponent,
     Fruitcart2Component
   ],

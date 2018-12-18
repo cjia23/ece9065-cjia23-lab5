@@ -10,26 +10,23 @@
 
 <div *ngIf = "selectedItem">
 <h2>{{selectedItem.name | uppercase}} Details</h2>
-
 <div><span>id: </span> {{selectedItem._id}}</div>
 <div>
-    <label>name: {{selectedItem.name}}
-          <input [(ngModel)]="selectedItem.name" placeholder="name">
+    <label>name: {{selectedItem.name}}--
     </label>
-    
-    <label>Price: {{selectedItem.price}}
-          <input [(ngModel)]="selectedItem.price" placeholder="price">
+    <label>Price: {{selectedItem.price}}--
     </label>
-    
-    <label>Description: {{selectedItem.description}}
-          <input [(ngModel)]="selectedItem.description" placeholder="description">
+    <label>Description: {{selectedItem.description}}--
     </label>
-    
-    <label>Rating: {{selectedItem.rating}}
-          <input [(ngModel)]="selectedItem.rating" placeholder="rating">
+    <label>Rating: {{selectedItem.rating}}--
     </label>
-    
+    <label>Quantity: {{selectedItem.quantity}}--
+    </label>
+    <label>Sold Quantity: {{selectedItem.sold_quantity}}--
+    </label><br>
+    <button (click) = "buyItem(selectedItem)">Buy an Item</button>
 </div>
 </div>
+
 
 
