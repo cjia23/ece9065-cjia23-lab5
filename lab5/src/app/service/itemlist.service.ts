@@ -31,7 +31,7 @@ export class ItemlistService implements Item {
   sold_quantity;
   _id;
   rating;
-  bought_quantity;
+
   
   
   //add an item to the server

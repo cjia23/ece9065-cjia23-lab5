@@ -24,22 +24,26 @@ export class FruitcartComponent implements OnInit {
     this.selectedItem = item;
   }
   
+  //add an item
   addanItem(){
     
     this.myservice.addanItem();
         
   }
   
+  //get items
   getItems(){
     this.myservice.getItems()
         .subscribe(data => this.items = data);
   }
   
+  //delete an item
   deleteanItem(item: Item): void{
     this.items = this.items.filter(h => h !==Item);
     this.myservice.deleteanItem(item).subscribe();
   }
   
+  //sort items
   sortItems(items: Observable<Item []>){
     
   }

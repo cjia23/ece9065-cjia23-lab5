@@ -9,6 +9,8 @@ import { SharedataService } from 'src/app/service/sharedata.service';
 })
 export class AuthGuard implements CanActivate {
   
+  
+  //Guard for Authenticated User
   constructor(private dataService: SharedataService){
     
   }

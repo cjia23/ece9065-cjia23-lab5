@@ -15,12 +15,15 @@ export class LoginComponent implements OnInit {
   
   loginForm: FormGroup;
  
-  constructor(private _myservice: AuthService, private _router: Router, private _activatedRoute: ActivatedRoute) 
+  constructor(private _myservice: AuthService, 
+              private _router: Router, 
+              private _activatedRoute: ActivatedRoute) 
   {
       this.loginForm = new FormGroup({
       email: new FormControl(null, Validators.required),
       password: new FormControl(null, Validators.required)
-      })}
+      })
+  }
 
   ngOnInit() {
   }
@@ -30,7 +33,7 @@ export class LoginComponent implements OnInit {
     return this.loginForm.get(controlName).invalid && this.loginForm.get(controlName).touched;
   }
   
-  //
+  //login and get the token 
   login() {
     console.log(this.loginForm.value);
 
@@ -45,7 +48,8 @@ export class LoginComponent implements OnInit {
           error => { console.log('log in failed.') }
         );}
   }
-
+  
+  //function to redirect to resigter panel
   movetoregister() {
     this._router.navigate(['../register'], { relativeTo: this._activatedRoute });
   }

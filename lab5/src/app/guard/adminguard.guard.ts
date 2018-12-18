@@ -8,6 +8,9 @@ import { SharedataService } from 'src/app/service/sharedata.service';
 })
 export class AdminguardGuard implements CanActivate {
   
+  
+  //guard for Admin
+  
   constructor(private dataService: SharedataService){}
   canActivate(
     next: ActivatedRouteSnapshot,
