@@ -89,7 +89,7 @@ export class ShoppingcartService {
      let new_name = {
        "SC_name": (<HTMLInputElement>document.getElementById("sc_name")).value.toString(),
        "description": (<HTMLInputElement>document.getElementById("sc_description")).value.toString(),
-       "visibility": (<HTMLInputElement>document.getElementById("sc_description")).value.toString()
+       "visibility": (<HTMLInputElement>document.getElementById("sc_visibility")).value.toString()
      };
      
      console.log(new_name);
@@ -118,4 +118,6 @@ export class ShoppingcartService {
      console.log(new_index);
      this.http.put(new_url,new_index).subscribe(new_index => new_index);
   }
+  
+  
 }

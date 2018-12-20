@@ -57,7 +57,7 @@ User Cart for user {{username}}:
 <div *ngIf = 'userShoppingCart'>
     <ul >
         <li (click) = "onSelectsc(sc)" *ngFor = "let sc of userShoppingCart">
-            User Cart: {{sc._id}} --Name: {{sc.SC_name}}:  {{sc.description}} - total_cost: {{sc.username}}<br>
+            User Cart: {{sc._id}} --Name: {{sc.SC_name}}:  {{sc.description}} - {{sc.username}}<br>
             visibility: {{sc.visibility}} <br>
             <button (click) = 'deleteShoppingCart(sc)'>Delete ShoppingCart </button>
             
@@ -71,10 +71,11 @@ Selected Cart Detailed Info:
             Item record to delete: <input  type = 'text' id = 'item_index'><br>
             New to buy quantity: <input  type = 'text' id = 'new_to_buy_quantity'><br>
             <button (click) = 'removeItem(selectedshoppingcart)'>Remove from cart </button>
-            <button (click) = 'changequantity(selectedshoppingcart)'>Remove from cart </button>
+            <button (click) = 'changequantity(selectedshoppingcart)'>Change Quantity </button>
             <ul >
                 <li *ngFor = "let fruit of cartlist">
                     You have bought - {{fruit.bought_quantity}} -- {{fruit.item_name}}-- ${{fruit.item_price}}<br>
+                    
                     
                 </li>
             </ul>
