@@ -17,7 +17,7 @@ export class Fruitcart2Component implements OnInit {
   
   boughtItems: Observable<Item[]>;
   bought_quantity;
-  
+  commentlist: Comment[];
   selectedItem: Item;
   
   ngOnInit() {
@@ -25,10 +25,11 @@ export class Fruitcart2Component implements OnInit {
     console.log(this.items);
   }
   
+
   onSelect(item: Item): void{
     this.selectedItem = item;
+    this.commentlist = this.selectedItem.comment.slice(0,5);
   }
-  
   addanItem(){
     this.myservice.addanItem();
   }
@@ -42,5 +43,15 @@ export class Fruitcart2Component implements OnInit {
     this.items = this.items.filter(h => h !==Item);
     this.myservice.deleteanItem(item).subscribe();
   }
+  
+  addComment(item: Item){
+    item = this.selectedItem;
+    this.myservice.addComment(item);
+    
+    if(this.rating <=0 || this.rating >5 || this.rating == ""){
+      window.alert("please enter a valid comment.")
+    }
+  }
+  
   
   }

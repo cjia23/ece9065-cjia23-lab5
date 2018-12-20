@@ -9,4 +9,12 @@
 </ul>
 
 
-<app-fruit-detail [item] = "selectedItem"></app-fruit-detail>
+<app-fruit-detail [item] = "selectedItem"></app-fruit-detail><br>
+  
+    <div *ngIf = 'commentlist'>
+    <ul >
+        <li *ngFor = "let comment of commentlist">
+            {{comment.username}}:  {{comment.comment}} - User rating: {{comment.rating}}
+        </li>
+    </ul>
+  </div>

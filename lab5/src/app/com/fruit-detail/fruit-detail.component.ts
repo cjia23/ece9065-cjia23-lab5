@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Item } from 'src/app/model/item';
+import { Comment, Item } from 'src/app/model/item';
+import { ItemlistService }from 'src/app/service/itemlist.service';
 
 @Component({
   selector: 'app-fruit-detail',
@@ -8,10 +9,16 @@ import { Item } from 'src/app/model/item';
 })
 export class FruitDetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private myservice: ItemlistService) { 
+   
+  }
 
   ngOnInit() {
   }
   
   @Input() item: Item;
+  
+  
+
+
 }

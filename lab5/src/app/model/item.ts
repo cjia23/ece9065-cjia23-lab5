@@ -1,3 +1,11 @@
+export class Comment {
+    username: String;
+    comment: String;
+}
+
+
+
+
 export class Item {
     name: String;
     quantity: Number;
@@ -7,4 +15,8 @@ export class Item {
     description: String;
     _id: String;
     rating:Number;
+    comment: [{
+        username: String;
+        comment: String;
+    }]; 
 }

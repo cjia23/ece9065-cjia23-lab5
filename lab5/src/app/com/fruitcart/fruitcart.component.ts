@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemlistService } from 'src/app/service/itemlist.service';
-import { Item } from 'src/app/model/item';
+import { Comment,Item } from 'src/app/model/item';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,11 +10,14 @@ import { Observable } from 'rxjs';
 })
 export class FruitcartComponent implements OnInit {
 
-  constructor(private myservice: ItemlistService) {};
+  constructor(private myservice: ItemlistService) {
+    
+  };
   title = "Here is the list of the items";
   items;
   
   selectedItem: Item;
+  commentlist: Comment[];
   
   ngOnInit() {
     this.items = this.getItems();
@@ -22,6 +25,7 @@ export class FruitcartComponent implements OnInit {
   
   onSelect(item: Item): void{
     this.selectedItem = item;
+    this.commentlist = this.selectedItem.comment.slice(0,5);
   }
   
   //add an item
@@ -43,8 +47,4 @@ export class FruitcartComponent implements OnInit {
     this.myservice.deleteanItem(item).subscribe();
   }
   
-  //sort items
-  sortItems(items: Observable<Item []>){
-    
-  }
 }

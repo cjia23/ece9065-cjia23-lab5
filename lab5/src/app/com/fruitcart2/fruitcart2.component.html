@@ -24,10 +24,21 @@
     </label>
     <label>Sold Quantity: {{selectedItem.sold_quantity}}--
     </label><br>
+    
+    <label>Comment: <input type = 'text' id = 'user_comment'><br>
+           Rating: <input  type = 'text' id = 'rating'><br>
+           <button (click) = 'addComment()'>Add comment on selected item</button>--
+    </label><br>
 </div>
 </div>
 
-
+    <div *ngIf = 'commentlist'>
+    <ul >
+        <li *ngFor = "let comment of commentlist">
+            {{comment.username}}:  {{comment.comment}} - User rating: {{comment.rating}}
+        </li>
+    </ul>
+  </div>
 
 
 
