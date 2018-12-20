@@ -25,13 +25,26 @@
     <label>Sold Quantity: {{selectedItem.sold_quantity}}--
     </label><br>
     
-    <label>Comment: <input type = 'text' id = 'user_comment'><br>
-           Rating: <input  type = 'text' id = 'rating'><br>
-           <button (click) = 'addComment()'>Add comment on selected item</button>--
+    <label>Comment: <input [(ngModel)] = "comment" type = 'text' id = 'user_comment'><br>
+           Rating: <input  [(ngModel)] = "rating" type = 'text' id = 'rating'><br>
+           <button (click) = 'addComment(selectedItem)'>Add comment on selected item</button>--<br>
+           sc_name: <input  type = 'text' id = 'sc_name'><br>
+           sc_description: <input  type = 'text' id = 'sc_description'><br>
+           bought_quantity: <input  type = 'text' id = 'bought_quantity'><br>
+           visibility: <input  type = 'text' id = 'sc_visibility'><br>
+           <button (click) = 'createshoppingCart(selectedItem)'>Create ShoppingCart </button>
+           <div *ngIf = 'selectedshoppingcart'>
+               <button (click) = 'buyanitemtoSC(selectedshoppingcart,selectedItem)'>buy this item </button>
+               <button (click) = 'editscName(selectedshoppingcart,selectedItem)'>Update selectedSC name </button>
+           </div>
+           
+           
     </label><br>
 </div>
 </div>
 
+
+User commentlist:     
     <div *ngIf = 'commentlist'>
     <ul >
         <li *ngFor = "let comment of commentlist">
@@ -40,5 +53,29 @@
     </ul>
   </div>
 
+User Cart for user {{username}}:
+<div *ngIf = 'userShoppingCart'>
+    <ul >
+        <li (click) = "onSelectsc(sc)" *ngFor = "let sc of userShoppingCart">
+            User Cart: {{sc._id}} --Name: {{sc.SC_name}}:  {{sc.description}} - total_cost: {{sc.username}}<br>
+            visibility: {{sc.visibility}} <br>
+            <button (click) = 'deleteShoppingCart(sc)'>Delete ShoppingCart </button>
+            
+            
+        </li>
+    </ul>
+</div>
 
-
+Selected Cart Detailed Info: 
+        <div *ngIf = "selectedshoppingcart">
+            Item record to delete: <input  type = 'text' id = 'item_index'><br>
+            New to buy quantity: <input  type = 'text' id = 'new_to_buy_quantity'><br>
+            <button (click) = 'removeItem(selectedshoppingcart)'>Remove from cart </button>
+            <button (click) = 'changequantity(selectedshoppingcart)'>Remove from cart </button>
+            <ul >
+                <li *ngFor = "let fruit of cartlist">
+                    You have bought - {{fruit.bought_quantity}} -- {{fruit.item_name}}-- ${{fruit.item_price}}<br>
+                    
+                </li>
+            </ul>
+        </div>

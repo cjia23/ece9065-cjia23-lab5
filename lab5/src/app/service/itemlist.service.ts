@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Comment, Item } from 'src/app/model/item';
+import { Comment, Item, ShoppingCart } from 'src/app/model/item';
 import { Observable } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth.service';
@@ -118,6 +118,12 @@ export class ItemlistService {
     return this.http.get(new_url)
     console.log("commentlist recieved!");
   }
+  
+  
+  
+
 }
+
+
   
 
